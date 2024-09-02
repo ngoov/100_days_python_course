@@ -13,9 +13,8 @@ def encrypt(original_text, shift_amount):
     for letter in original_text:
         letter_index = alphabet.index(letter)
         encrypt_index = letter_index + shift_amount
-        if encrypt_index > 25:
-            encrypt_index -= 26
         # TODO-4: What happens if you try to shift z forwards by 9? Can you fix the code?
+        encrypt_index %= len(alphabet)
         encrypted_text += alphabet[encrypt_index]
     print(f'Encrypted text: {encrypted_text}')
 

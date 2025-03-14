@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.idea/VirtualEnvironment/bin" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/VirtualEnvironment/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/day-19/.venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

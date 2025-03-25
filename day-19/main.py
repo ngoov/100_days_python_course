@@ -1,33 +1,41 @@
 from turtle import Turtle, Screen
+import random
 
-tim = Turtle()
+is_race_on = False
 screen = Screen()
+canvas_width = 500
+screen.setup(canvas_width, 400)
 
-def move_forwards():
-    tim.forward(10)
-    
-def move_backwards():
-    tim.backward(10)
-    
-def turn_left():
-    new_heading = tim.heading() + 10
-    tim.setheading(new_heading)
-    
-def turn_right():
-    new_heading = tim.heading() - 10
-    tim.setheading(new_heading)
+user_bet = screen.textinput("Make your bet", "Which turtle will win the race? Enter a color: ")
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-def clear():
-    tim.clear()
-    tim.penup()
-    tim.home()
-    tim.pendown()
+all_turtles = []
+turtle_size = 40
+canvas_x_border = (canvas_width / 2) - (turtle_size / 2)
 
-screen.listen()
-screen.onkey(move_forwards, "w")
-screen.onkey(move_backwards, "s")
-screen.onkey(turn_left, "a")
-screen.onkey(turn_right, "d")
-screen.onkey(clear, "c")
+for i, color in enumerate(colors):
+    new_turtle = Turtle(shape="turtle")
+    new_turtle.color(color)
+    new_turtle.penup()
+    new_turtle.goto(x=-canvas_x_border, y=-100 + i * 40)
+    new_turtle.pendown()
+    all_turtles.append(new_turtle)
+
+
+if user_bet:
+    is_race_on = True
+
+while is_race_on:
+    for turtle in all_turtles:
+        if turtle.xcor() > canvas_x_border:
+            is_race_on = False
+            winning_color = turtle.pencolor()
+            if winning_color == user_bet:
+                print("You've won!")
+            else:
+                print("You've lost!")
+        rand_distance = random.randint(0, 10)
+        turtle.forward(rand_distance)
+
 
 screen.exitonclick()

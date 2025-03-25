@@ -6,7 +6,8 @@ screen = Screen()
 canvas_width = 500
 screen.setup(canvas_width, 400)
 
-user_bet = screen.textinput("Make your bet", "Which turtle will win the race? Enter a color: ")
+user_bet = screen.textinput("Make your bet",
+                            "Which turtle will win the race? Enter a color: ")
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
 all_turtles = []
@@ -20,7 +21,6 @@ for i, color in enumerate(colors):
     new_turtle.goto(x=-canvas_x_border, y=-100 + i * 40)
     new_turtle.pendown()
     all_turtles.append(new_turtle)
-
 
 if user_bet:
     is_race_on = True
@@ -36,6 +36,5 @@ while is_race_on:
                 print("You've lost!")
         rand_distance = random.randint(0, 10)
         turtle.forward(rand_distance)
-
 
 screen.exitonclick()

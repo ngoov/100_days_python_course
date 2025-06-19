@@ -3,11 +3,11 @@ from turtle import Screen
 class GameScreen:
     def __init__(self):
         self.screen = Screen()
-        self.width = 800
+        self.width = 600
         self.height = 600
         self.screen.setup(width=self.width, height=self.height)
         self.screen.bgcolor("black")
-        self.screen.title("pong")
+        self.screen.title("Turtle Crossing Game")
         self.screen.tracer(0)
         self.force_open_on_top()
 

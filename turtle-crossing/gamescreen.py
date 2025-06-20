@@ -6,7 +6,6 @@ class GameScreen:
         self.width = 600
         self.height = 600
         self.screen.setup(width=self.width, height=self.height)
-        self.screen.bgcolor("black")
         self.screen.title("Turtle Crossing Game")
         self.screen.tracer(0)
         self.force_open_on_top()
@@ -26,6 +25,9 @@ class GameScreen:
 
     def listen(self):
         self.screen.listen()
+
+    def exitonclick(self):
+        self.screen.exitonclick()
 
     def onkey(self, func, key):
         self.screen.onkey(func, key)
